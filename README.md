@@ -19,7 +19,7 @@ The driver version and kernel verison string must match exactly.  If your kernel
 	Subsystem: NVIDIA Corporation Device [10de:1532]
 ```
 
-## Remove the nouveau kernel module and install the Nvidia Precompiled Kernel Modules
+## Remove the Nouveau kernel driver module and install the Nvidia Precompiled Kernel Driver Modules
 ```bash
 echo 'blacklist nouveau' >> /etc/modprobe.d/blacklist.conf
 dnf config-manager --add-repo=https://developer.download.nvidia.com/compute/cuda/repos/rhel8/x86_64/cuda-rhel8.repo
