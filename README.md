@@ -35,3 +35,4 @@ dnf module install nvidia-driver:latest -y
 # sed -i 's/^# runtime = "crun"/runtime = "crun"/;' /etc/containers/containers.conf
 ```
 
+## Install Nvidia-docker 
