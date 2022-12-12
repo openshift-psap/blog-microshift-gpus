@@ -17,13 +17,12 @@ The driver version and kernel verison string must match exactly.  If your kernel
 # lspci -nnv |grep -i nvidia
 17:00.0 3D controller [0302]: NVIDIA Corporation GA100GL [A30 PCIe] [10de:20b7] (rev a1)
 	Subsystem: NVIDIA Corporation Device [10de:1532]
-```
+
 
 ## Remove the Nouveau kernel Driver module (otherwise the Nvidia driver will not load), then install the Nvidia Driver
+```bash
 echo 'blacklist nouveau' >> /etc/modprobe.d/blacklist.conf
-
 dnf config-manager --add-repo=https://developer.download.nvidia.com/compute/cuda/repos/rhel8/x86_64/cuda-rhel8.repo
-
 dnf module install nvidia-driver:latest -y
 ```
 
