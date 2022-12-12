@@ -27,4 +27,11 @@ dnf config-manager --add-repo=https://developer.download.nvidia.com/compute/cuda
 dnf module install nvidia-driver:latest -y
 ```
 
+## Install Podman and crun, and verify that crun is the default OCI runtime
+```bash
+# dnf install -y crun
+# dnf install -y podman
+# cp /usr/share/containers/containers.conf /etc/containers/containers.conf
+# sed -i 's/^# runtime = "crun"/runtime = "crun"/;' /etc/containers/containers.conf
+```
 
