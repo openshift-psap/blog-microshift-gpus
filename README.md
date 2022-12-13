@@ -18,17 +18,50 @@ The driver version and kernel verison string must match exactly.  If your kernel
 ## Verify the GPU installed on your system (Step 2)
 ```bash
 # lspci -nnv |grep -i nvidia
+
+example output:
 17:00.0 3D controller [0302]: NVIDIA Corporation GA100GL [A30 PCIe] [10de:20b7] (rev a1)
 	Subsystem: NVIDIA Corporation Device [10de:1532]
 ```
 
-## Remove the Nouveau kernel Driver module (otherwise the Nvidia driver will not load), then install the Nvidia Driver (Step 3)
+## Remove the Nouveau kernel Driver module (otherwise the Nvidia driver will not load), then install the Nvidia Driver and reboot (Step 3)
 At this point in time the "latest" pre-compiled kernel modules for the Nvidia driver supports kernel version 4.18.0-372.32.1, as shown in [Nvidia's precompiled kmod driver package table](https://developer.download.nvidia.com/compute/cuda/repos/rhel8/x86_64/precompiled/), so "latest" is chosen here.  
 ```bash
-echo 'blacklist nouveau' >> /etc/modprobe.d/blacklist.conf
-dnf config-manager --add-repo=https://developer.download.nvidia.com/compute/cuda/repos/rhel8/x86_64/cuda-rhel8.repo
-dnf module install nvidia-driver:latest -y
+# echo 'blacklist nouveau' >> /etc/modprobe.d/blacklist.conf
+# dnf config-manager --add-repo=https://developer.download.nvidia.com/compute/cuda/repos/rhel8/x86_64/cuda-rhel8.repo
+# dnf module install nvidia-driver:latest -y
+# reboot
 ```
+
+## Run Nvidia-smi (Step 4) 
+```bash
+# nvidia-smi 
+
+output should look something like this:
+
+# nvidia-smi
+Mon Dec 12 20:22:27 2022       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 520.61.05    Driver Version: 520.61.05    CUDA Version: 11.8     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA A30          Off  | 00000000:17:00.0 Off |                    0 |
+| N/A   27C    P0    29W / 165W |      0MiB / 24576MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+```
+
 
 ## Install Podman and crun, and verify that crun is the default OCI runtime (Step 4)
 ```bash
