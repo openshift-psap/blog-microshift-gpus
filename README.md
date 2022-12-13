@@ -15,14 +15,14 @@ The driver version and kernel verison string must match exactly.  If your kernel
 
 
 
-## Verify the GPU installed on your system
+## Verify the GPU installed on your system (Step 2)
 ```bash
 # lspci -nnv |grep -i nvidia
 17:00.0 3D controller [0302]: NVIDIA Corporation GA100GL [A30 PCIe] [10de:20b7] (rev a1)
 	Subsystem: NVIDIA Corporation Device [10de:1532]
 ```
 
-## Remove the Nouveau kernel Driver module (otherwise the Nvidia driver will not load), then install the Nvidia Driver
+## Remove the Nouveau kernel Driver module (otherwise the Nvidia driver will not load), then install the Nvidia Driver (Step 3)
 At this point in time the "latest" pre-compiled kernel modules for the Nvidia driver supports kernel version 4.18.0-372.32.1, as shown in [Nvidia's precompiled kmod driver package table](https://developer.download.nvidia.com/compute/cuda/repos/rhel8/x86_64/precompiled/), so "latest" is chosen here.  
 ```bash
 echo 'blacklist nouveau' >> /etc/modprobe.d/blacklist.conf
@@ -30,7 +30,7 @@ dnf config-manager --add-repo=https://developer.download.nvidia.com/compute/cuda
 dnf module install nvidia-driver:latest -y
 ```
 
-## Install Podman and crun, and verify that crun is the default OCI runtime
+## Install Podman and crun, and verify that crun is the default OCI runtime (Step 4)
 ```bash
 # dnf install -y crun
 # dnf install -y podman
@@ -38,7 +38,7 @@ dnf module install nvidia-driver:latest -y
 # sed -i 's/^# runtime = "crun"/runtime = "crun"/;' /etc/containers/containers.conf
 ```
 
-## Install Nvidia-docker
+## Install Nvidia-docker (Step 5)
 Nvidia-docker supports [these distributions](https://nvidia.github.io/nvidia-docker/). Now we install nvidia-docker for RHEL 8.6 which matches our version (shown in step 1).
 ```bash
 # curl -s -L https://nvidia.github.io/nvidia-docker/rhel8.6/nvidia-docker.repo | tee /etc/yum.repos.d/nvidia-docker.repo
