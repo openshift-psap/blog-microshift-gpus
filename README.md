@@ -1,6 +1,6 @@
 # blog-microshift-gpus
 In this blog we will demonstrate how to enable Nvidia GPUs on an x86 system running RHEL 8.6 and Microshift. 
-## Environment 
+## Environment (Step 1)
 Check your kernel level.  Also check your RHEL level, which you will need later.
 ```bash
 # uname -r 
@@ -39,7 +39,7 @@ dnf module install nvidia-driver:latest -y
 ```
 
 ## Install Nvidia-docker
-Nvidia-docker supports [these distributions](https://nvidia.github.io/nvidia-docker/). Now we install nvidia-docker for RHEL 8.6 which matches our version on this system.
+Nvidia-docker supports [these distributions](https://nvidia.github.io/nvidia-docker/). Now we install nvidia-docker for RHEL 8.6 which matches our version (shown in step 1).
 ```bash
 # curl -s -L https://nvidia.github.io/nvidia-docker/rhel8.6/nvidia-docker.repo | tee /etc/yum.repos.d/nvidia-docker.repo
 # dnf install nvidia-container-toolkit -y![image](https://user-images.githubusercontent.com/3208719/207197182-7067db89-acfd-4dcc-afc0-ee3b29113daa.png)
