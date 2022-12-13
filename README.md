@@ -49,7 +49,7 @@ Nvidia-docker supports [these distributions](https://nvidia.github.io/nvidia-doc
 ## Test a Nvidia container using Podman on your GPU
 ```bash
 # podman run --privileged -ti nvidia/cuda:11.0.3-base-ubuntu20.04 nvidia-smi
-```
+
 
 You should see something like this 
 
@@ -73,3 +73,4 @@ Tue Dec 13 00:57:20 2022
 |=============================================================================|
 |  No running processes found                                                 |
 +-----------------------------------------------------------------------------+
+```
