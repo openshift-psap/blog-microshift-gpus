@@ -136,8 +136,7 @@ Note: Nvidia GPU Operator is not yet available for MicroShift. So we will do the
 You will first need to install helm and then the Nvidia GPU Operand and make selinux change. 
 ```bash
 
-Selinux will prevent rootless containers from accessing the gpu until you change this setting.  
-The container will get permission denied when accessing the gpu if you do not change this setting.
+Selinux will prevent rootless containers from accessing the gpu without this setting.
 
 # setsebool -P container_use_devices=true
 
