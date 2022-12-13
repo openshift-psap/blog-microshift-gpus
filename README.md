@@ -148,7 +148,8 @@ To install helm:
 Then install Nvidia GPU Operand
 # helm repo add nvdp https://nvidia.github.io/k8s-device-plugin    && helm repo update
 # helm install --generate-name nvdp/nvidia-device-plugin --namespace kube-system
-# # oc get pods -n kube-system
+
+# oc get pods -n kube-system
 NAME                                    READY   STATUS    RESTARTS   AGE
 kube-flannel-ds-sxvz6                   1/1     Running   0          4d10h
 nvidia-device-plugin-1670905057-xhjg9   1/1     Running   0          10h
