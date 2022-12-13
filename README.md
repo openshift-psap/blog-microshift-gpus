@@ -45,3 +45,29 @@ Nvidia-docker supports [these distributions](https://nvidia.github.io/nvidia-doc
 # dnf install nvidia-container-toolkit -y![image](https://user-images.githubusercontent.com/3208719/207197182-7067db89-acfd-4dcc-afc0-ee3b29113daa.png)
 # curl -LO https://raw.githubusercontent.com/NVIDIA/dgx-selinux/master/bin/RHEL8/nvidia-container.pp
 ```
+
+## Test a Nvidia container using Podman on your GPU
+```bash
+# podman run --privileged -ti nvidia/cuda:11.0.3-base-ubuntu20.04 nvidia-smi
+```bash
+
+You should see something like this Tue Dec 13 00:57:20 2022       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 520.61.05    Driver Version: 520.61.05    CUDA Version: 11.8     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA A30          Off  | 00000000:17:00.0 Off |                    0 |
+| N/A   27C    P0    29W / 165W |      0MiB / 24576MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
