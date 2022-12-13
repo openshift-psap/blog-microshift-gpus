@@ -1,7 +1,7 @@
 # blog-microshift-gpus
 In this blog we will demonstrate how to enable Nvidia GPUs on an x86 system running RHEL 8.6 and Microshift. 
 ## Environment 
-Check your kernel level 
+Check your kernel level.  Also check your RHEL level.
 ```bash
 # uname -r 
 4.18.0-372.32.1.el8_6.x86_64 
