@@ -182,7 +182,7 @@ spec:
 
 # oc create -f gpu.t
 
-[root@perf42 ~]# oc logs -n default gpu-operator-test 
+# oc logs -n default gpu-operator-test 
 [Vector addition of 50000 elements]
 Copy input data from the host memory to the CUDA device
 CUDA kernel launch with 196 blocks of 256 threads
