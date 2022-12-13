@@ -138,7 +138,7 @@ You will first need to install helm and then the Nvidia GPU Operand and make sel
 ```bash
 
 # selinux 
-setsebool -P container_use_devices 1
+setsebool -P container_use_devices=true
 
 
 To install helm:
