@@ -150,5 +150,18 @@ To install helm:
 Then install Nvidia GPU Operand
 # helm repo add nvdp https://nvidia.github.io/k8s-device-plugin    && helm repo update
 # helm install --generate-name nvdp/nvidia-device-plugin --namespace kube-system
+# # oc get pods -n kube-system
+NAME                                    READY   STATUS    RESTARTS   AGE
+kube-flannel-ds-sxvz6                   1/1     Running   0          4d10h
+nvidia-device-plugin-1670905057-xhjg9   1/1     Running   0          10h
+# oc logs -n kube-system  nvidia-device-plugin-1670905057-xhjg9
+
+2022/12/13 04:17:38 Retreiving plugins.
+2022/12/13 04:17:38 Detected NVML platform: found NVML library
+2022/12/13 04:17:38 Detected non-Tegra platform: /sys/devices/soc0/family file not found
+2022/12/13 04:17:38 Starting GRPC server for 'nvidia.com/gpu'
+2022/12/13 04:17:38 Starting to serve 'nvidia.com/gpu' on /var/lib/kubelet/device-plugins/nvidia-gpu.sock
+2022/12/13 04:17:38 Registered device plugin for 'nvidia.com/gpu' with Kubelet
 
 ```
+## Run a sample gpu test (Step 10)
