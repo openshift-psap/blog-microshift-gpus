@@ -118,7 +118,16 @@ Tue Dec 13 00:57:20 2022
 ```
 
 ## Install MicroShift (Step 9) 
-Refer to the Microshift Doc for [installation guide](https://microshift.io/docs/getting-started/). 
+Register your system with subscription manager
+```bash
+~]# subscription-manager register
+Registering to: subscription.rhsm.redhat.com:443/subscription
+Username: <your username>
+Password: <your password>
+```
+Then refer to the Microshift Doc for [installation guide](https://microshift.io/docs/getting-started/). 
+
+
 
 ## Install Nvidia GPU Operand. (Step 10)
 Note: Nvidia GPU Operator is not yet available for MicroShift. So we will do the part of the Nvidia GPU Operator by installing the operand using helm.
