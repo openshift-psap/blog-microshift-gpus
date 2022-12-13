@@ -146,7 +146,7 @@ To install helm:
 
 Then install Nvidia GPU Operand
 # helm repo add nvdp https://nvidia.github.io/k8s-device-plugin    && helm repo update
-# helm install --generate-name nvdp/nvidia-device-plugin --namespace kube-system
+# helm install --generate-name nvdp/nvidia-device-plugin --namespace kube-system --version=0.13.0  --set compatWithCPUManager=true
 
 # oc get pods -n kube-system
 NAME                                    READY   STATUS    RESTARTS   AGE
