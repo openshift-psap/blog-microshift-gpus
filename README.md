@@ -49,7 +49,7 @@ Nvidia-docker supports [these distributions](https://nvidia.github.io/nvidia-doc
 ## Test a Nvidia container using Podman on your GPU
 ```bash
 # podman run --privileged -ti nvidia/cuda:11.0.3-base-ubuntu20.04 nvidia-smi
-```bash
+```
 
 You should see something like this 
 
