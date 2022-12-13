@@ -75,7 +75,7 @@ Mon Dec 12 20:22:27 2022
 Nvidia-docker supports [these distributions](https://nvidia.github.io/nvidia-docker/). Now we install nvidia-docker for RHEL 8.6 which matches our version (shown in step 1).
 ```bash
 # curl -s -L https://nvidia.github.io/nvidia-docker/rhel8.6/nvidia-docker.repo | tee /etc/yum.repos.d/nvidia-docker.repo
-# dnf install nvidia-container-toolkit -y![image](https://user-images.githubusercontent.com/3208719/207197182-7067db89-acfd-4dcc-afc0-ee3b29113daa.png)
+# dnf install nvidia-container-toolkit -y
 ```
 
 ## Add the nvidia-container SELinux policy to our machine (Step 7)
