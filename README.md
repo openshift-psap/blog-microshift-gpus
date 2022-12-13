@@ -120,12 +120,15 @@ Tue Dec 13 00:57:20 2022
 ## Install MicroShift (Step 9) 
 Register your system with subscription manager
 ```bash
+
+e.g. 
+
 ~]# subscription-manager register
 Registering to: subscription.rhsm.redhat.com:443/subscription
 Username: <your username>
 Password: <your password>
 ```
-Then refer to the Microshift Doc for [installation guide](https://microshift.io/docs/getting-started/). 
+Then refer to the Microshift Doc for the [installation guide](https://microshift.io/docs/getting-started/). 
 
 
 
