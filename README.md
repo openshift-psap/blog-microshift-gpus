@@ -3,9 +3,9 @@ In this blog we will demonstrate how to enable Nvidia GPUs on an x86 system runn
 ## Environment 
 Check your kernel level 
 ```bash
-#uname -r 
+# uname -r 
 4.18.0-372.32.1.el8_6.x86_64 
-## cat /etc/redhat-release
+# cat /etc/redhat-release
 Red Hat Enterprise Linux release 8.6 (Ootpa)
 ```
 Nvidia drivers need to be installed for your specific kernel version. 
