@@ -37,7 +37,7 @@ At this point in time the "latest" pre-compiled kernel modules for the Nvidia dr
 ```bash
 # nvidia-smi 
 
-output should look something like this:
+example output:
 
 # nvidia-smi
 Mon Dec 12 20:22:27 2022       
@@ -93,7 +93,7 @@ Nvidia-docker supports [these distributions](https://nvidia.github.io/nvidia-doc
 # podman run --privileged -ti nvidia/cuda:11.0.3-base-ubuntu20.04 nvidia-smi
 
 
-You should see something like this 
+example output: 
 
 Tue Dec 13 00:57:20 2022       
 +-----------------------------------------------------------------------------+
