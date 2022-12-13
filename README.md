@@ -5,6 +5,8 @@ Check your kernel level
 ```bash
 #uname -r 
 4.18.0-372.32.1.el8_6.x86_64 
+## cat /etc/redhat-release
+Red Hat Enterprise Linux release 8.6 (Ootpa)
 ```
 Nvidia drivers need to be installed for your specific kernel version. 
 Precompiled kernel modules are availabe for the Nvidia drivers and have the advantage of being tested and validated against specific kernel versions. 
