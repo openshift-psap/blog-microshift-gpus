@@ -46,7 +46,16 @@ Nvidia-docker supports [these distributions](https://nvidia.github.io/nvidia-doc
 # curl -LO https://raw.githubusercontent.com/NVIDIA/dgx-selinux/master/bin/RHEL8/nvidia-container.pp
 ```
 
-## Test a Nvidia container using Podman on your GPU
+## Add the nvidia-container SELinux policy to our machine (Step 6)
+```bash
+# curl -LO https://raw.githubusercontent.com/NVIDIA/dgx-selinux/master/bin/RHEL8/nvidia-container.pp
+# semodule -i nvidia-container.pp
+# nvidia-container-cli -k list | restorecon -v -f –
+```
+
+
+
+## Test a Nvidia container using Podman on your GPU (Step 7) 
 ```bash
 # podman run --privileged -ti nvidia/cuda:11.0.3-base-ubuntu20.04 nvidia-smi
 
