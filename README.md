@@ -134,8 +134,13 @@ Then refer to the Microshift Doc and follow steps in the [installation guide](ht
 
 ## Install Nvidia GPU Operand (Step 10)
 Note: Nvidia GPU Operator is not yet available for MicroShift. So we will do the part of the Nvidia GPU Operator by installing the operand using helm.
-You will first need to install helm and then the Nvidia GPU Operand. 
+You will first need to install helm and then the Nvidia GPU Operand and make selinux change. 
 ```bash
+
+# selinux 
+setsebool -P container_use_devices 1
+
+
 To install helm:
 # curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
 
