@@ -165,3 +165,22 @@ nvidia-device-plugin-1670905057-xhjg9   1/1     Running   0          10h
 
 ```
 ## Run a sample gpu test (Step 10)
+```bash
+# cat gpu.t
+apiVersion: v1
+kind: Pod
+metadata:
+  name: gpu-operator-test
+spec:
+  restartPolicy: OnFailure
+  containers:
+  - name: cuda-vector-add
+    image: "nvidia/samples:vectoradd-cuda11.2.1-ubi8"
+    resources:
+      limits:
+         nvidia.com/gpu: 1
+    securityContext:
+      privileged: true
+
+# oc create -f gpu.t
+```
