@@ -141,8 +141,6 @@ Selinux will prevent rootless containers from accessing the gpu until you change
 The container will get permission denied when accessing the gpu if you do not change this setting.
 
 # setsebool -P container_use_devices=true
-# setsebool -P container_use_devices 1
-
 
 To install helm:
 # curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
