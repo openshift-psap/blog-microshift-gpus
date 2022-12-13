@@ -33,7 +33,7 @@ At this point in time the "latest" pre-compiled kernel modules for the Nvidia dr
 # reboot
 ```
 
-## Verify Nvidia Drivers are installed property (Step 4) 
+## Verify Nvidia Drivers are installed properly (Step 4) 
 ```bash
 # nvidia-smi 
 
