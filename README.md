@@ -128,7 +128,7 @@ Registering to: subscription.rhsm.redhat.com:443/subscription
 Username: <your username>
 Password: <your password>
 ```
-Then refer to the Microshift Doc for the [installation guide](https://microshift.io/docs/getting-started/). 
+Then refer to the Microshift Doc and follow steps in the [installation guide](https://microshift.io/docs/getting-started/). 
 
 
 
