@@ -132,6 +132,6 @@ Then refer to the Microshift Doc and follow steps in the [installation guide](ht
 
 
 
-## Install Nvidia GPU Operand. (Step 10)
+## Install Nvidia GPU Operand (Step 10)
 Note: Nvidia GPU Operator is not yet available for MicroShift. So we will do the part of the Nvidia GPU Operator by installing the operand using helm.
 
