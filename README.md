@@ -33,7 +33,7 @@ At this point in time the "latest" pre-compiled kernel modules for the Nvidia dr
 # reboot
 ```
 
-## Verify Nvidia Drivers are installed property by running Nvidia-smi (Step 4) 
+## Verify Nvidia Drivers are installed property (Step 4) 
 ```bash
 # nvidia-smi 
 
@@ -71,7 +71,7 @@ Mon Dec 12 20:22:27 2022
 # sed -i 's/^# runtime = "crun"/runtime = "crun"/;' /etc/containers/containers.conf
 ```
 
-## Install Nvidia-docker (Step 5)
+## Install Nvidia-docker (Step 6)
 Nvidia-docker supports [these distributions](https://nvidia.github.io/nvidia-docker/). Now we install nvidia-docker for RHEL 8.6 which matches our version (shown in step 1).
 ```bash
 # curl -s -L https://nvidia.github.io/nvidia-docker/rhel8.6/nvidia-docker.repo | tee /etc/yum.repos.d/nvidia-docker.repo
@@ -116,3 +116,5 @@ Tue Dec 13 00:57:20 2022
 |  No running processes found                                                 |
 +-----------------------------------------------------------------------------+
 ```
+
+## Install MicroShift (Step 9) 
