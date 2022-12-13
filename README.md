@@ -25,7 +25,7 @@ example output:
 ```
 
 ## Remove the Nouveau kernel Driver module (otherwise the Nvidia driver will not load), then install the Nvidia Driver and reboot (Step 3)
-At this point in time the "latest" pre-compiled kernel modules for the Nvidia drivers supports kernel version 4.18.0-372.32.1, as shown in [Nvidia's precompiled kmod driver package table](https://developer.download.nvidia.com/compute/cuda/repos/rhel8/x86_64/precompiled/), so "latest" is chosen here.  
+At this point in time the "latest" pre-compiled kernel modules for the Nvidia drivers support kernel version 4.18.0-372.32.1, as shown in [Nvidia's precompiled kmod driver package table](https://developer.download.nvidia.com/compute/cuda/repos/rhel8/x86_64/precompiled/), so "latest" is chosen here.  
 ```bash
 # echo 'blacklist nouveau' >> /etc/modprobe.d/blacklist.conf
 # dnf config-manager --add-repo=https://developer.download.nvidia.com/compute/cuda/repos/rhel8/x86_64/cuda-rhel8.repo
