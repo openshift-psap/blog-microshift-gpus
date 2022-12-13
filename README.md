@@ -134,7 +134,12 @@ Then refer to the Microshift Doc and follow steps in the [installation guide](ht
 
 ## Install Nvidia GPU Operand (Step 10)
 Note: Nvidia GPU Operator is not yet available for MicroShift. So we will do the part of the Nvidia GPU Operator by installing the operand using helm.
+You will first need to install helm and then the Nvidia GPU Operand. 
 ```bash
+To install helm:
+# curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+
+Then install Nvidia GPU Operand
 # helm repo add nvdp https://nvidia.github.io/k8s-device-plugin    && helm repo update
 # helm install --generate-name nvdp/nvidia-device-plugin --namespace kube-system
 
