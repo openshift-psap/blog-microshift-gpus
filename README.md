@@ -168,7 +168,7 @@ nvidia-device-plugin-1670905057-xhjg9   1/1     Running   0          10h
 apiVersion: v1
 kind: Pod
 metadata:
-  name: gpu-operator-test
+  name: gpu-operand-test
 spec:
   restartPolicy: OnFailure
   containers:
@@ -180,14 +180,16 @@ spec:
     securityContext:
       privileged: true
 
+
 # oc create -f gpu.t
 
-# oc logs -n default gpu-operator-test 
+# oc logs -n default gpu-operand-test
 [Vector addition of 50000 elements]
 Copy input data from the host memory to the CUDA device
 CUDA kernel launch with 196 blocks of 256 threads
 Copy output data from the CUDA device to the host memory
 Test PASSED
 Done
+
 
 ```
