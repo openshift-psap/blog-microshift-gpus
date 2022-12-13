@@ -164,7 +164,7 @@ nvidia-device-plugin-1670905057-xhjg9   1/1     Running   0          10h
 2022/12/13 04:17:38 Registered device plugin for 'nvidia.com/gpu' with Kubelet
 
 ```
-## Run a sample gpu test (Step 10)
+## Run a sample gpu test (Step 11)
 ```bash
 # cat gpu.t
 apiVersion: v1
