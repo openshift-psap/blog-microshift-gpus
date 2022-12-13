@@ -35,7 +35,8 @@ dnf module install nvidia-driver:latest -y
 # sed -i 's/^# runtime = "crun"/runtime = "crun"/;' /etc/containers/containers.conf
 ```
 
-## Install Nvidia-docker 
+## Install Nvidia-docker
+Nvidia-docker supports [these distributions] (https://nvidia.github.io/nvidia-docker/). 
 ```bash
 # curl -s -L https://nvidia.github.io/nvidia-docker/rhel8.6/nvidia-docker.repo | tee /etc/yum.repos.d/nvidia-docker.repo
 # dnf install nvidia-container-toolkit -y![image](https://user-images.githubusercontent.com/3208719/207197182-7067db89-acfd-4dcc-afc0-ee3b29113daa.png)
