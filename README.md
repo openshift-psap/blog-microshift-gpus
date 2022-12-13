@@ -63,7 +63,7 @@ Mon Dec 12 20:22:27 2022
 ```
 
 
-## Install Podman and crun, and verify that crun is the default OCI runtime (Step 4)
+## Install Podman and crun, and verify that crun is the default OCI runtime (Step 5)
 ```bash
 # dnf install -y crun
 # dnf install -y podman
@@ -79,7 +79,7 @@ Nvidia-docker supports [these distributions](https://nvidia.github.io/nvidia-doc
 # curl -LO https://raw.githubusercontent.com/NVIDIA/dgx-selinux/master/bin/RHEL8/nvidia-container.pp
 ```
 
-## Add the nvidia-container SELinux policy to our machine (Step 6)
+## Add the nvidia-container SELinux policy to our machine (Step 7)
 ```bash
 # curl -LO https://raw.githubusercontent.com/NVIDIA/dgx-selinux/master/bin/RHEL8/nvidia-container.pp
 # semodule -i nvidia-container.pp
@@ -88,7 +88,7 @@ Nvidia-docker supports [these distributions](https://nvidia.github.io/nvidia-doc
 
 
 
-## Verify that the Nvidia Drivers and Podman are configured correctly (Step 7) 
+## Verify that the Nvidia Drivers and Podman are configured correctly (Step 8) 
 ```bash
 # podman run --privileged -ti nvidia/cuda:11.0.3-base-ubuntu20.04 nvidia-smi
 
