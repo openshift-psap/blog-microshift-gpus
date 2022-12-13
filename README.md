@@ -162,6 +162,12 @@ nvidia-device-plugin-1670905057-xhjg9   1/1     Running   0          10h
 2022/12/13 04:17:38 Starting to serve 'nvidia.com/gpu' on /var/lib/kubelet/device-plugins/nvidia-gpu.sock
 2022/12/13 04:17:38 Registered device plugin for 'nvidia.com/gpu' with Kubelet
 
+View the GPU in the node description.
+# oc describe node | grep gpu
+  nvidia.com/gpu:     1
+  nvidia.com/gpu:     1
+  nvidia.com/gpu     0           0
+
 ```
 ## Run a sample gpu test (Step 11)
 ```bash
