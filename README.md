@@ -51,7 +51,9 @@ Nvidia-docker supports [these distributions](https://nvidia.github.io/nvidia-doc
 # podman run --privileged -ti nvidia/cuda:11.0.3-base-ubuntu20.04 nvidia-smi
 ```bash
 
-You should see something like this Tue Dec 13 00:57:20 2022       
+You should see something like this 
+
+Tue Dec 13 00:57:20 2022       
 +-----------------------------------------------------------------------------+
 | NVIDIA-SMI 520.61.05    Driver Version: 520.61.05    CUDA Version: 11.8     |
 |-------------------------------+----------------------+----------------------+
