@@ -120,4 +120,5 @@ Tue Dec 13 00:57:20 2022
 ## Install MicroShift (Step 9) 
 Refer to the Microshift Doc for [installation guide](https://microshift.io/docs/getting-started/). 
 
+## Install Nvidia GPU Operand, Nvidia GPU Operator not get available for MicroShift. (Step 10(
 
