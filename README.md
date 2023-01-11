@@ -71,10 +71,10 @@ Mon Dec 12 20:22:27 2022
 # sed -i 's/^# runtime = "crun"/runtime = "crun"/;' /etc/containers/containers.conf
 ```
 
-## Install Nvidia-docker (Step 6)
-Nvidia-docker supports [these distributions](https://nvidia.github.io/nvidia-docker/). Now we install nvidia-docker for RHEL 8.6 which matches our version (shown in step 1).
+## Install Nvidia Container Toolkit (Step 6)
+Nvidia container toolkit supports [these distributions](https://nvidia.github.io/nvidia-docker/). Now we install Nvidia Container Toolkit for RHEL 8.7 which matches our version (shown in step 1).
 ```bash
-# curl -s -L https://nvidia.github.io/nvidia-docker/rhel8.6/nvidia-docker.repo | tee /etc/yum.repos.d/nvidia-docker.repo
+# curl -s -L https://nvidia.github.io/nvidia-docker/rhel8.7/nvidia-docker.repo | tee /etc/yum.repos.d/nvidia-docker.repo
 # dnf install nvidia-container-toolkit -y
 ```
 
