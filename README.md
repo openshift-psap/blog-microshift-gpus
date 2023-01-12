@@ -19,7 +19,7 @@ The driver version and kernel verison string must match exactly.  If your kernel
 ```bash
 # lspci -nnv |grep -i nvidia
 
-example output:
+example output:	
 17:00.0 3D controller [0302]: NVIDIA Corporation GA100GL [A30 PCIe] [10de:20b7] (rev a1)
 	Subsystem: NVIDIA Corporation Device [10de:1532]
 ```
