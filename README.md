@@ -37,7 +37,7 @@ The registered system name is: yourhostname
 
 # echo 'blacklist nouveau' >> /etc/modprobe.d/blacklist.conf
 # dnf config-manager --add-repo=https://developer.download.nvidia.com/compute/cuda/repos/rhel8/x86_64/cuda-rhel8.repo
-# dnf module install nvidia-driver:latest -y
+# dnf module install nvidia-driver:525 -y
 # reboot
 ```
 
