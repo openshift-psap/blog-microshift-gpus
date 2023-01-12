@@ -25,8 +25,16 @@ example output:
 ```
 
 ## Remove the Nouveau kernel Driver module (otherwise the Nvidia driver will fail to initialize the GPU), then install the Nvidia Driver and reboot (Step 3)
-At this point in time the "latest" pre-compiled kernel modules for the Nvidia drivers support kernel version 4.18.0-372.32.1, as shown in [Nvidia's precompiled kmod driver package table](https://developer.download.nvidia.com/compute/cuda/repos/rhel8/x86_64/precompiled/), so "latest" is chosen here.  
+At this point in time the "latest" pre-compiled kernel modules for the Nvidia drivers support kernel version 4.18.0-372.32.1, as shown in [Nvidia's precompiled kmod driver package table](https://developer.download.nvidia.com/compute/cuda/repos/rhel8/x86_64/precompiled/), so "525" is chosen here.  The life cycle is shown here.  First register your system with subscription-manager and install the precomplied modules. 
 ```bash
+
+# subscription-manager register
+Registering to: subscription.rhsm.redhat.com:443/subscription
+Username: xxx
+Password: xxx
+The system has been registered with ID: xxx
+The registered system name is: yourhostname
+
 # echo 'blacklist nouveau' >> /etc/modprobe.d/blacklist.conf
 # dnf config-manager --add-repo=https://developer.download.nvidia.com/compute/cuda/repos/rhel8/x86_64/cuda-rhel8.repo
 # dnf module install nvidia-driver:latest -y
