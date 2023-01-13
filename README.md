@@ -136,23 +136,15 @@ Fri Jan 13 20:18:28 2023
 ```
 
 ## Install MicroShift (Step 9) 
-Register your system with subscription manager
+
 ```bash
 
-e.g. 
-
-~]# subscription-manager register
-Registering to: subscription.rhsm.redhat.com:443/subscription
-Username: <your username>
-Password: <your password>
 ```
-Then refer to the Microshift Doc and follow steps in the [installation guide](https://microshift.io/docs/getting-started/). 
+Refer to the Microshift Docs and follow steps in the [installation guide](https://microshift.io/docs/getting-started/). 
 
 
 
-## Install Nvidia GPU Operand (Step 10)
-Note: Nvidia GPU Operator is not yet available for MicroShift. So we will do the part of the Nvidia GPU Operator by installing the operand using helm.
-You will first need to install helm and then the Nvidia GPU Operand and make selinux change. 
+## Install Nvidia GPU Device Plugin (Step 10)
 ```bash
 
 Selinux will prevent rootless containers from accessing the gpu without this setting.
