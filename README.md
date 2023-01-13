@@ -39,7 +39,6 @@ At this point in time the "latest" pre-compiled kernel modules for the Nvidia dr
 
 example output:
 
-# nvidia-smi
 Fri Jan 13 14:29:53 2023       
 +-----------------------------------------------------------------------------+
 | NVIDIA-SMI 525.60.13    Driver Version: 525.60.13    CUDA Version: 12.0     |
