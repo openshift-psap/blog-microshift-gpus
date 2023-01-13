@@ -28,8 +28,6 @@ example output:
 
 ```bash
 
-e.g. 
-
 # subscription-manager register
 Registering to: subscription.rhsm.redhat.com:443/subscription
 Username: <your username>
