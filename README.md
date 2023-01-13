@@ -24,8 +24,8 @@ example output:
 	Subsystem: NVIDIA Corporation Device [10de:1532]
 ```
 
-## Install MicroShift (Step 3) 
-Register your system with subscription manager
+## Register you system with subscription manager (Step 3) 
+
 ```bash
 
 e.g. 
