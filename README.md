@@ -109,16 +109,16 @@ Nvidia container toolkit supports [these distributions](https://nvidia.github.io
 
 example output: 
 
-Tue Dec 13 00:57:20 2022       
+Fri Jan 13 20:18:28 2023       
 +-----------------------------------------------------------------------------+
-| NVIDIA-SMI 520.61.05    Driver Version: 520.61.05    CUDA Version: 11.8     |
+| NVIDIA-SMI 525.60.13    Driver Version: 525.60.13    CUDA Version: 12.0     |
 |-------------------------------+----------------------+----------------------+
 | GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
 | Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
 |                               |                      |               MIG M. |
 |===============================+======================+======================|
 |   0  NVIDIA A30          Off  | 00000000:17:00.0 Off |                    0 |
-| N/A   27C    P0    29W / 165W |      0MiB / 24576MiB |      0%      Default |
+| N/A   30C    P0    32W / 165W |      0MiB / 24576MiB |      0%      Default |
 |                               |                      |             Disabled |
 +-------------------------------+----------------------+----------------------+
                                                                                
@@ -129,6 +129,7 @@ Tue Dec 13 00:57:20 2022
 |=============================================================================|
 |  No running processes found                                                 |
 +-----------------------------------------------------------------------------+
+
 ```
 
 ## Install MicroShift (Step 9) 
