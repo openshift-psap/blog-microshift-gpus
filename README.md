@@ -47,17 +47,16 @@ The registered system name is: yourhostname
 
 example output:
 
-# nvidia-smi
-Mon Dec 12 20:22:27 2022       
+Fri Jan 13 14:29:53 2023       
 +-----------------------------------------------------------------------------+
-| NVIDIA-SMI 520.61.05    Driver Version: 520.61.05    CUDA Version: 11.8     |
+| NVIDIA-SMI 525.60.13    Driver Version: 525.60.13    CUDA Version: 12.0     |
 |-------------------------------+----------------------+----------------------+
 | GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
 | Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
 |                               |                      |               MIG M. |
 |===============================+======================+======================|
 |   0  NVIDIA A30          Off  | 00000000:17:00.0 Off |                    0 |
-| N/A   27C    P0    29W / 165W |      0MiB / 24576MiB |      0%      Default |
+| N/A   29C    P0    35W / 165W |      0MiB / 24576MiB |     25%      Default |
 |                               |                      |             Disabled |
 +-------------------------------+----------------------+----------------------+
                                                                                
