@@ -97,7 +97,7 @@ Nvidia container toolkit supports [these distributions](https://nvidia.github.io
 ```bash
 # curl -LO https://raw.githubusercontent.com/NVIDIA/dgx-selinux/master/bin/RHEL8/nvidia-container.pp
 # semodule -i nvidia-container.pp
-# nvidia-container-cli -k list | restorecon -v -f –
+# nvidia-container-cli -k list | restorecon -v -f -
 ```
 
 
