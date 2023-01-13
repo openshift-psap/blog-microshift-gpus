@@ -151,12 +151,8 @@ Selinux will prevent rootless containers from accessing the gpu without this set
 
 # setsebool -P container_use_devices=true
 
-To install helm:
-# curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
-
-Then install Nvidia GPU Operand
-# helm repo add nvdp https://nvidia.github.io/k8s-device-plugin    && helm repo update
-# helm install --generate-name nvdp/nvidia-device-plugin --namespace kube-system --version=0.13.0  --set compatWithCPUManager=true
+Then install Nvidia GPU Device plugin
+by coping the manifests to /etc/microshift/manifests
 
 # oc get pods -n kube-system
 NAME                                    READY   STATUS    RESTARTS   AGE
