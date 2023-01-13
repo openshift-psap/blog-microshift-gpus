@@ -30,7 +30,7 @@ example output:
 
 e.g. 
 
-~]# subscription-manager register
+# subscription-manager register
 Registering to: subscription.rhsm.redhat.com:443/subscription
 Username: <your username>
 Password: <your password>
