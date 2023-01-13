@@ -75,7 +75,15 @@ Fri Jan 13 14:29:53 2023
 # dnf install -y crun
 # dnf install -y podman
 # cp /usr/share/containers/containers.conf /etc/containers/containers.conf
-# sed -i 's/^# runtime = "crun"/runtime = "crun"/;' /etc/containers/containers.conf
+
+enable crun:
+# sed -i 's/^#runtime = "crun"/runtime = "crun"/;' /etc/containers/containers.conf
+
+disable runc:
+sed -i 's/^runtime = "runc"/#runtime = "runc"/;' /etc/containers/containers.conf
+
+check to make sure crun is uncommented 
+# grep crun /etc/containers/containers.conf
 ```
 
 ## Install Nvidia Container Toolkit (Step 6)
