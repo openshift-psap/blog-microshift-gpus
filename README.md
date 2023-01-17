@@ -136,7 +136,7 @@ Fri Jan 13 20:18:28 2023
 ```
 
 ## Install MicroShift (Step 9) 
-
+Use the [4.12 release instructions to install MicroShift](https://54388--docspreview.netlify.app/microshift/latest/microshift_install/microshift-install-rpm.html). 
 ```bash
 
 ```
