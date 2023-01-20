@@ -85,7 +85,7 @@ enable crun:
 disable runc:
 sed -i 's/^runtime = "runc"/#runtime = "runc"/;' /etc/containers/containers.conf
 
-check to make sure crun is uncommented 
+check to make sure 'runtime = "crun"' is uncommented so that the runtime is crun.
 # grep crun /etc/containers/containers.conf
 ```
 
