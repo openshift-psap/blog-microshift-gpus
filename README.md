@@ -312,7 +312,7 @@ $ oc logs -n nvidia-device-plugin nvidia-device-plugin-jx8s8
 You can also verify that the node exposes the `nvidia.com/gpu` resources in its capacity.
 
 ```bash
-$ oc get node -o json | jq -r '.items[0].status.capacity
+$ oc get node -o json | jq -r '.items[0].status.capacity'
 
 example output:
 {
