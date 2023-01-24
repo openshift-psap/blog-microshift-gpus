@@ -6,7 +6,7 @@ In this blog we will demonstrate how to enable NVIDIA GPUs on an x86 system runn
 
 ## Pre-requisites
 
-We assume that you have already followed the [Microshift documentation](https://docs.openshift.com/microshift/main/microshift_install/microshift-install-rpm.html) to install it on the Red Hat Enterprise Linux 8.7 machine.
+We assume that you have already followed the [Microshift documentation](https://54388--docspreview.netlify.app/microshift/latest/microshift_install/microshift-install-rpm.html) to install it on the Red Hat Enterprise Linux 8.7 machine.
 
 And obviously, you need a machine with an NVIDIA GPU. You can verify this with the following command:
 
