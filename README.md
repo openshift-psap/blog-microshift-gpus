@@ -384,3 +384,7 @@ Done
 ```
 
 Well done! You have a machine with Microshift that can run NVIDIA GPU accelerated workloads.
+
+## Run MLPerf Inference and see the performance of real world workloads 
+<img width="1432" alt="MLPerf Inference Microshift" src="https://user-images.githubusercontent.com/3208719/215785392-ed796c47-847f-4404-9a25-8febc8699690.png">
+
