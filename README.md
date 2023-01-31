@@ -1,12 +1,12 @@
 # Accelerating workloads with NVIDIA GPUs on Red Hat Device Edge
 
-On January 31st, 2023, Red Hat has released Red Hat Device Edge, that provides access to Microshift, which has the simplicity of single-node deployment with the functions and services you need for computing in resource-constrained locations. You can have many deployments on different hosts, creating the specific system image needed for each of your applications. Installing MicroShift on top of your managed RHEL devices in hard-to-service locations also allows for streamlined over-the-air updates.
+On January 31st, 2023, Red Hat has released Red Hat Device Edge, that provides access to MicroShift, which has the simplicity of single-node deployment with the functions and services you need for computing in resource-constrained locations. You can have many deployments on different hosts, creating the specific system image needed for each of your applications. Installing MicroShift on top of your managed RHEL devices in hard-to-service locations also allows for streamlined over-the-air updates.
 
 In this blog we will demonstrate how to enable NVIDIA GPUs on an x86 system running Red Hat Device Edge.
 
 ## Pre-requisites
 
-We assume that you have already followed the [Microshift documentation](https://54388--docspreview.netlify.app/microshift/latest/microshift_install/microshift-install-rpm.html) to install it on the Red Hat Enterprise Linux 8.7 machine.
+We assume that you have already followed the [MicroShift documentation](https://54388--docspreview.netlify.app/microshift/latest/microshift_install/microshift-install-rpm.html) to install it on the Red Hat Enterprise Linux 8.7 machine.
 
 And obviously, you need a machine with an NVIDIA GPU. You can verify this with the following command:
 
