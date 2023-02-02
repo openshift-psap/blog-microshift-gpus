@@ -253,6 +253,8 @@ Well done! You have a machine with Microshift that can run NVIDIA GPU accelerate
 
 ## Run MLPerf Inference and see the performance of real world workloads
 
+MLPerf is the industry standard open-source Machine Learning (ML) Benchmark with real world workloads for Natural Languge Processing (NLP), Computer Vision (object detection & medical image segmentation), Speech, and recommendation. The MLPerf inference benchmark suite measures how fast the system can process input and produce results, using a trained model.  
+
 <img width="1401" alt="MLPerf_Inference_SingleStream_MicroShift_vs_Nvidia" src="https://user-images.githubusercontent.com/3208719/216212776-5b6ce60e-cb81-409e-8ed0-79d0b80206f5.png">
 
 
