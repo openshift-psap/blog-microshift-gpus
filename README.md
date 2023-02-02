@@ -390,3 +390,6 @@ Well done! You have a machine with Microshift that can run NVIDIA GPU accelerate
 <img width="1401" alt="MLPerf_Inference_SingleStream_MicroShift_vs_Nvidia" src="https://user-images.githubusercontent.com/3208719/216212776-5b6ce60e-cb81-409e-8ed0-79d0b80206f5.png">
 
 
+
+<img width="1401" alt="MLPerf_Inference_v2 0_MicroShift_4 12_Offline" src="https://user-images.githubusercontent.com/3208719/216223929-2f3ba75e-b3b4-4c9e-b4b5-5456178858ed.png">
+
