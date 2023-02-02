@@ -6,7 +6,7 @@ In this blog we will demonstrate how to enable NVIDIA GPUs on an x86 system runn
 
 ## Pre-requisites
 
-We assume that you have already followed the [MicroShift documentation](https://54388--docspreview.netlify.app/microshift/latest/microshift_install/microshift-install-rpm.html) to install it on the Red Hat Enterprise Linux 8.7 machine.
+We assume that you have already followed the [MicroShift documentation](https://access.redhat.com/documentation/en-us/red_hat_build_of_microshift/4.12/html/installing/microshift-install-rpm) to install Microshift 4.12 on the Red Hat Enterprise Linux 8.7 machine.
 
 And obviously, you need a machine with an NVIDIA GPU. You can verify this with the following command:
 
@@ -84,17 +84,10 @@ The NVIDIA Container Toolkit requires some SELinux permissions to work properly.
 First, we allow containers to use devices from the host.
 
 ```bash
-$ sudo setsebool -p container_use_devices on
+$ sudo setsebool -P container_use_devices on
 ```
 
-Then, we apply the policy for NVIDIA container toolkit.
-
-```bash
-$ curl -sLO https://raw.githubusercontent.com/NVIDIA/dgx-selinux/master/bin/RHEL8/nvidia-container.pp
-$ sudo semodule -i nvidia-container.pp
-```
-
-It still misses a permission and we can create a policy file.
+It still misses a permission, so we create a policy file.
 
 ```bash
 $ cat <<EOF > nvidia-container-microshift.te
@@ -119,13 +112,6 @@ $ semodule_package --outfile nvidia-container-microshift.pp --module nvidia-cont
 $ sudo semodule -i nvidia-container-microshift.pp
 ```
 
-Finally, we restore the file context of the files used by the NVIDIA container toolkit.
-
-```bash
-$ nvidia-container-cli -k list | restorecon -v -f -
-```
-
-
 ## Install NVIDIA Device Plugin
 
 For Microshift to be able to allocate GPU resource to the pods, you need to deploy the [NVIDIA Device Plugin](https://github.com/NVIDIA/k8s-device-plugin), which is Daemonset that allows you to automatically:
@@ -142,147 +128,27 @@ Let's create the folder:
 $ sudo mkdir -p /etc/microshift/manifests
 ```
 
-To isolate the device plugin from other workloads, we make it run in its own namespace, `nvidia-device-plugin`:
+The device plugin runs in privileged mode, so we isolate it from other workloads, by running it in its own namespace, `nvidia-device-plugin`.
+We have worked with NVIDIA to create a static deployment manifest for the device plugin, including the namespace, role, role binding and service account.
+To add it to the manifests deployed by Microshift at start time, we download it as `/etc/microshift/manifests/nvidia-device-plugin.yml`.
 
 ```bash
-$ cat <<EOF | sudo tee -a /etc/microshift/manifests/namespace-nvidia-device-plugin.yml
----
-apiVersion: v1
-kind: Namespace
-metadata:
-  labels:
-    pod-security.kubernetes.io/enforce: privileged
-    pod-security.kubernetes.io/audit: privileged
-    pod-security.kubernetes.io/warn: privileged
-  name: nvidia-device-plugin
-EOF
-```
-
-The device plugin requires to run in `privileged` mode to be able to access the `/var/lib/kubelet/device-plugins` folder on the host. And it also requires the ability to read the node information. So, we create a cluster role that grants these permissions:
-
-```bash
-$ cat <<EOF | sudo tee -a /etc/microshift/manifests/role-nvidia-device-plugin.yml
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: Role
-metadata:
-  name: nvidia-device-plugin
-  namespace: nvidia-device-plugin
-rules:
-- apiGroups:
-  - ""
-  resources:
-  - nodes
-  verbs:
-  - get
-  - list
-  - watch
-- apiGroups:
-  - security.openshift.io
-  resourceNames:
-  - privileged
-  resources:
-  - securitycontextconstraints
-  verbs:
-  - use
-EOF
-```
-
-We create a service account that will be used to run the device plugin pod:
-
-```bash
-$ cat <<EOF | sudo tee -a /etc/microshift/manifests/serviceaccount-nvidia-device-plugin.yml
----
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: nvidia-device-plugin
-  namespace: nvidia-device-plugin
-EOF
-```
-
-And we associate the service account and the cluster role in a cluster role binding:
-
-```bash
-$ cat <<EOF | sudo tee -a /etc/microshift/manifests/rolebinding-nvidia-device-plugin.yml
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
-metadata:
-  name: nvidia-device-plugin
-  namespace: nvidia-device-plugin
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: Role
-  name: nvidia-device-plugin
-subjects:
-  - kind: ServiceAccount
-    name: nvidia-device-plugin
-    namespace: nvidia-device-plugin
-EOF
-```
-
-We are now ready to create the DaemonSet specification. You can see that the `securityContext.privileged` field is set to true and that the `serviceAccountName` corresponds to the service account we specified earlier.
-
-```bash
-$ cat <<EOF | sudo tee -a /etc/microshift/manifests/daemonset-nvidia-device-plugin.yml
----
-apiVersion: apps/v1
-kind: DaemonSet
-metadata:
-  name: nvidia-device-plugin-daemonset
-  namespace: nvidia-device-plugin
-spec:
-  selector:
-    matchLabels:
-      name: nvidia-device-plugin-ds
-  updateStrategy:
-    type: RollingUpdate
-  template:
-    metadata:
-      labels:
-        name: nvidia-device-plugin-ds
-    spec:
-      tolerations:
-        - key: nvidia.com/gpu
-          operator: Exists
-          effect: NoSchedule
-      priorityClassName: "system-node-critical"
-      containers:
-        - image: nvcr.io/nvidia/k8s-device-plugin:v0.13.0
-          name: nvidia-device-plugin-ctr
-          env:
-            - name: FAIL_ON_INIT_ERROR
-              value: "false"
-          securityContext:
-            privileged: true
-          volumeMounts:
-            - name: device-plugin
-              mountPath: /var/lib/kubelet/device-plugins
-      serviceAccountName: nvidia-device-plugin
-      volumes:
-        - name: device-plugin
-          hostPath:
-            path: /var/lib/kubelet/device-plugins
-EOF
+$ curl -s -L https://gitlab.com/nvidia/kubernetes/device-plugin/-/raw/main/deployments/static/nvidia-device-plugin-privileged-with-service-account.yml | sudo tee /etc/microshift/manifests/nvidia-device-plugin.yml
 ```
 
 The resources will not be created automatically just because the files exist. We need to add them to the `kustomize` configuration. This is done through a single `kustomization.yaml` file in the manifests folder that references all the resources we want to create.
 
 ```bash
 $ cat <<EOF | sudo tee /etc/microshift/manifests/kustomization.yaml
+---
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - namespace-nvidia-device-plugin.yml
-  - role-nvidia-device-plugin.yml
-  - serviceaccount-nvidia-device-plugin.yml
-  - rolebinding-nvidia-device-plugin.yml
-  - daemonset-nvidia-device-plugin.yml
+  - nvidia-device-plugin.yml
 EOF
 ```
 
-At that point, you are ready to restart the `microshift` service to ensure it creates the resources.
+At that point, you are ready to restart the `microshift` service so that it creates the resources.
 
 ```bash
 $ sudo systemctl restart microshift
@@ -321,7 +187,7 @@ example output:
   "hugepages-1Gi": "0",
   "hugepages-2Mi": "0",
   "memory": "196686216Ki",
-  "nvidia.com/gpu": "2",
+  "nvidia.com/gpu": "1",
   "pods": "250"
 }
 ```
@@ -385,7 +251,7 @@ Done
 
 Well done! You have a machine with Microshift that can run NVIDIA GPU accelerated workloads.
 
-## Run MLPerf Inference and see the performance of real world workloads 
+## Run MLPerf Inference and see the performance of real world workloads
 
 <img width="1401" alt="MLPerf_Inference_SingleStream_MicroShift_vs_Nvidia" src="https://user-images.githubusercontent.com/3208719/216212776-5b6ce60e-cb81-409e-8ed0-79d0b80206f5.png">
 
