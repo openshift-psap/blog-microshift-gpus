@@ -255,6 +255,10 @@ Well done! You have a machine with Microshift that can run NVIDIA GPU accelerate
 
 MLPerf is the industry standard open-source Machine Learning (ML) Benchmark with real world workloads for Natural Languge Processing (NLP), Computer Vision (image classification, object detection & medical image segmentation), Speech, and recommendation. The MLPerf inference benchmark suite measures how fast the system can process input and produce results, using a trained model.  We ran MLPerf inference for edge with 1XA30 Nvidia GPU (Intel Xeon/Ice Lake CPU), and compared our results with Nvidia's published 1XA30 GPU results (AMD Epyc CPU).  
 
+For Singlestream results were better (lower) for all inference benchmarks (Resnet50, SSD-MobileNet, SSD-resnet34, 3D-Unet, RNN-T, BERT) with our run on MicroShift in all cases.  This may have been due to a difference in the CPUs we used (Nvidia results were on AMD Epyc and our results were on Intel Ice Lake), or different CUDA versions used. 
+
+For Offine results were within 0-2.6% worse than Nvidia Published results. 
+
 
 <img width="1401" alt="MLPerf_Inference_SingleStream_MicroShift_vs_Nvidia" src="https://user-images.githubusercontent.com/3208719/216212776-5b6ce60e-cb81-409e-8ed0-79d0b80206f5.png">
 
