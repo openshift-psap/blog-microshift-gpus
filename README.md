@@ -257,9 +257,11 @@ MLPerf is the industry standard open-source Machine Learning (ML) Benchmark with
 
 FIX: recreate graph for Singlesteam.  Two incorrect values. 
 
-For Singlestream results were better (lower) for all inference benchmarks (Resnet50, SSD-MobileNet, SSD-resnet34, 3D-Unet, RNN-T, BERT) with our run on MicroShift in all cases.  This may have been due to a difference in the CPUs we used (Nvidia results were on AMD Epyc and our results were on Intel Ice Lake), or different CUDA versions used. 
+For Singlestream our results on MicroShift + RHEL 8.7 were better (lower is better) for all inference benchmarks (Resnet50, SSD-MobileNet, SSD-resnet34, 3D-Unet, RNN-T, BERT) in all cases, compared to the Nvidia published results.  This may have been due to a difference in the CPUs we used (Nvidia results were on AMD Epyc and our results were on Intel Ice Lake), or Operating system diffences RHEL 8.7 vs Ubuntu. 
 
-For Offine results were within 0-2.6% worse than Nvidia Published results. 
+For Offine results on MicroShift + Rhel 8.7 were within 0-2.6% worse than Nvidia Published results. 
+
+To reproduce our results please use these [instructions](https://github.com/openshift-psap/inference_results_v2.0). 
 
 
 <img width="1401" alt="MLPerf_Inference_SingleStream_MicroShift_vs_Nvidia" src="https://user-images.githubusercontent.com/3208719/216212776-5b6ce60e-cb81-409e-8ed0-79d0b80206f5.png">
