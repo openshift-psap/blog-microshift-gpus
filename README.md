@@ -269,3 +269,7 @@ To reproduce our results please use these [instructions](https://github.com/open
 
 <img width="1401" alt="MLPerf_Inference_v2 0_MicroShift_4 12_Offline" src="https://user-images.githubusercontent.com/3208719/216223929-2f3ba75e-b3b4-4c9e-b4b5-5456178858ed.png">
 
+
+## Acknowledgements
+
+We would like to thank Tom Tracy for his work preparing the host system for this blog and for his feedback regarding our proposed system setup.
