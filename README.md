@@ -45,20 +45,19 @@ After the machine has rebooted, you can verify that the NVIDIA drivers are insta
 $ nvidia-smi
 
 example output:
-
-Fri Jan 13 14:29:53 2023
+Mon Feb 13 14:06:12 2023       
 +-----------------------------------------------------------------------------+
-| NVIDIA-SMI 525.60.13    Driver Version: 525.60.13    CUDA Version: 12.0     |
+| NVIDIA-SMI 525.85.12    Driver Version: 525.85.12    CUDA Version: 12.0     |
 |-------------------------------+----------------------+----------------------+
 | GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
 | Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
 |                               |                      |               MIG M. |
 |===============================+======================+======================|
 |   0  NVIDIA A30          Off  | 00000000:17:00.0 Off |                    0 |
-| N/A   29C    P0    35W / 165W |      0MiB / 24576MiB |     25%      Default |
+| N/A   27C    P0    32W / 165W |      0MiB / 24576MiB |     25%      Default |
 |                               |                      |             Disabled |
 +-------------------------------+----------------------+----------------------+
-
+                                                                               
 +-----------------------------------------------------------------------------+
 | Processes:                                                                  |
 |  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
@@ -66,7 +65,6 @@ Fri Jan 13 14:29:53 2023
 |=============================================================================|
 |  No running processes found                                                 |
 +-----------------------------------------------------------------------------+
-
 ```
 
 ## Install NVIDIA Container Toolkit
