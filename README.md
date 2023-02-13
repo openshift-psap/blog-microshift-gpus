@@ -84,6 +84,7 @@ The NVIDIA Container Toolkit requires some SELinux permissions to work properly.
 First, we allow containers to use devices from the host.
 
 ```bash
+$ sudo dnf install container-selinux.noarch
 $ sudo setsebool -P container_use_devices on
 ```
 
