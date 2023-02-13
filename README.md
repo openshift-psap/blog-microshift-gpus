@@ -29,7 +29,7 @@ $ sudo dnf config-manager --add-repo=https://developer.download.nvidia.com/compu
 NVIDIA provides different branches of their drivers, with different lifecycles, which are described in [NVIDIA Datacenter Drivers documentation](https://docs.nvidia.com/datacenter/tesla/drivers/index.html#cuda-drivers). In this blog post, we will use the latest version from the production branch. At the time of writing, it is version R525. The install is done as follows:
 
 ```bash
-$ sudo dnf module install nvidia-driver:525
+$ sudo dnf module install nvidia-driver:525 -y
 ```
 
 Now, the driver is installed, be you still need to blacklist the `nouveau` driver which is a community developped in-tree driver from NVIDIA GPUs. It will conflict with the NVIDIA driver and must be disabled. This requires a reboot to take effect.
